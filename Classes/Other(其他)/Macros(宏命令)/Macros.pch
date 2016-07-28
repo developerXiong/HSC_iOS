@@ -1,0 +1,79 @@
+//
+//  Macros.pch
+//  HSC_iOS
+//
+//  Created by draven on 16/7/26.
+//  Copyright © 2016年 draven. All rights reserved.
+//
+
+#ifndef Macros_pch
+#define Macros_pch
+
+#define TEST @"test"
+
+/**********************************/
+
+#import "UIView+Extension.h"
+#import "QuickCreateKJ.h"
+
+#define X(v)               (v).frame.origin.x
+#define Y(v)               (v).frame.origin.y
+#define WIDTH(v)           (v).frame.size.width
+#define HEIGHT(v)          (v).frame.size.height
+
+#define MAXX(v)            CGRectGetMaxX((v).frame) // 获得控件屏幕的最大x坐标
+#define MAXY(v)            CGRectGetMaxY((v).frame) // 获得控件屏幕的最大y坐标
+
+#define MinX(v)            CGRectGetMinX((v).frame) // 获得控件屏幕的最小x坐标
+#define MinY(v)            CGRectGetMinY((v).frame) // 获得控件屏幕的最小Y坐标
+
+#define MidX(v)            CGRectGetMidX((v).frame) //横坐标加上到控件中点坐标
+#define MidY(v)            CGRectGetMidY((v).frame) //纵坐标加上到控件中点坐标
+
+
+// 获取默认系统偏好设置
+#define HSUserDefault [NSUserDefaults standardUserDefaults]
+
+
+/** 尺寸 */
+#define  SCREEN [UIScreen mainScreen].bounds   //屏幕frame
+#define  SCREEN_WIDTH  [[UIScreen mainScreen] bounds].size.width  //屏幕宽
+#define  SCREEN_HEIGHT  [[UIScreen mainScreen] bounds].size.height //屏幕高
+
+
+#define SizeCase (SCREEN_HEIGHT/568)
+
+/** 颜色 */
+//RGB
+#define  Color(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+//默认背景颜色
+#define  DEFAULT_BACKGROUND_COLOR [UIColor colorWithHexString:@"f6f6f7"]
+//随机色
+#define RandomColor Color(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
+
+//版本号
+#define kVersion [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+#define kVersionBuild [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]
+
+
+/** 手机型号判断 */
+#define IS_IPHONE4S     (([[UIScreen mainScreen] bounds].size.height == 480) ? YES : NO)
+#define IS_IPHONE5      (([[UIScreen mainScreen] bounds].size.height == 568) ? YES : NO)
+#define IS_IPhone6      (([[UIScreen mainScreen] bounds].size.height == 667) ? YES : NO)
+#define IS_IPhone6plus  (([[UIScreen mainScreen] bounds].size.height == 736) ? YES : NO)
+
+#define IS_IOS7   ([[UIDevice currentDevice].systemVersion doubleValue] >= 7)
+#define IS_IOS8   ([[UIDevice currentDevice].systemVersion doubleValue] >= 8)
+#define IS_IOS9   ([[UIDevice currentDevice].systemVersion doubleValue] >= 9)
+#define IS_Equal_IOS9  ([[UIDevice currenDevice].systemVersion doubleValue == 9)
+
+/** 输出方式 */
+#ifdef DEBUG
+#define HSLog(...)  NSLog(__VA_ARGS__)
+#else
+#define HSLog(...)
+#endif
+
+/**********************************/
+
+#endif /* Macros_pch */
